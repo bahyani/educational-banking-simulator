@@ -1,0 +1,499 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zurich - Money Transfer and Online Payments System</title>
+
+    <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.css">
+    <link rel="stylesheet" href="assets/css/plugin/apexcharts.css">
+    <link rel="stylesheet" href="assets/css/plugin/nice-select.css">
+    <link rel="stylesheet" href="assets/css/arafat-font.css">
+    <link rel="stylesheet" href="assets/css/plugin/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/toastr.min.css">
+    
+     <style>
+    #loader{
+      position: fixed;
+      text-align:center;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10000;
+      cursor: pointer;
+      display:none;
+      justify-content: center;
+      margin-top:-50px;
+    }
+    
+     #overlay{
+      position: fixed;
+      text-align:center;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+      opacity: 0.6;
+      z-index: 100000;
+      cursor: not-allowed;
+      display:none;
+      justify-content: center;
+    }
+    
+    </style>
+    
+    
+</head>
+
+<body>
+     <div id="loader">
+            <img src="assets/css/ajax-loader.gif" alt="" width=".1em">
+        </div>
+        
+
+        <div id="overlay">
+        </div>
+        
+    <!-- start preloader -->
+    <div class="preloader" id="preloader"></div>
+    <!-- end preloader -->
+
+    <!-- Scroll To Top Start-->
+    <a href="javascript:void(0)" class="scrollToTop"><i class="fas fa-angle-double-up"></i></a>
+    <!-- Scroll To Top End -->
+
+    <!-- header-section start -->
+    <header class="header-section body-collapse">
+        <div class="overlay">
+            <div class="container-fruid">
+                <div class="row d-flex header-area">
+                    <div class="navbar-area d-flex align-items-center justify-content-between">
+                        <div class="sidebar-icon">
+                            <img src="assets/images/icon/menu.png" alt="icon">
+                        </div>
+                        <!--<img src="assets/" width="200em">-->
+                        <div class="dashboard-nav">
+                            
+                        
+                        
+
+
+                            <div class="single-item notifications-area">
+                                <div class="notifications-btn">
+                                    <img src="assets/images/icon/bell.png" class="bell-icon" alt="icon">
+                                </div>
+                                <div class="main-area notifications-content">
+                                    <div class="head-area d-flex justify-content-between">
+                                        <h5>Notifications</h5>
+                                        <span class="mdr">1</span>
+                                    </div>
+                                    <ul>
+                                        
+                                        
+                                                         <li>
+                                                            <a href="javascript:void(0)" class="d-flex">
+                                                                <div class="img-area">
+                                                                    <img width="30em" src="assets/images/user-profile.png" class="max-un" alt="image">
+                                                                </div>
+                                                                <div class="text-area">
+                                                                    <p class="mdr">Account creation was successful. Welcome</p>
+                                                                    <p class="mdr time-area">5 mins ago</p>
+                                                                </div>
+                                                            </a></li>
+                                                                                            
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            
+                                                        <div class="single-item user-area">
+                                <div class="profile-area d-flex align-items-center">
+                                    <span class="user-profile">
+                                        <img src="assets/images/uploads/avatar/user.png" alt="User" width="40em">
+                                    </span>
+                                </div>
+                                <div class="main-area user-content">
+                                    <div class="head-area d-flex align-items-center">
+                                        
+                                        <div class="profile-img">
+                                            <img src="assets/images/uploads/avatar/user.png" alt="User" width="70em">
+                                        </div>
+                                        <div class="profile-head">
+                                            <a href="account">
+                                                <h5>Hughes Kassie</h5>
+                                            </a>
+                                            <p class="wallet-id">Account No: 110695143</p>
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li class="border-area">
+                                            <a href="account"><i class="fas fa-cog"></i>Settings</a>
+                                        </li>
+                                        <li>
+                                            <a href="logout"><i class="fas fa-sign-out"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-wrapper">
+                        <div class="close-btn">
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <div class="sidebar-logo">
+                            <a href="dashboard"><img src="assets/" alt="logo" width="200em"></a>
+                        </div>
+                        <ul>
+                            <li class="">
+                                <a href="dashboard">
+                                    <img src="assets/images/icon/dashboard.png" alt="Dashboard"> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="transactions">
+                                    <img src="assets/images/icon/transactions.png" alt="Transactions"> <span>Statement</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="withdraw">
+                                    <img src="assets/images/icon/pay.png" alt="Pay"> <span>Transfers / Pay Tax</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="tax-history">
+                                    <img src="assets/images/icon/transactions.png" alt="Transactions"> <span>Tax History</span>
+                                </a>
+                            </li>
+                            <li class="active">
+                                <a href="request-step-1">
+                                    <img src="assets/images/icon/receive.png" alt="Request"> <span>Request Payment</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="requests">
+                                    <img src="assets/images/icon/receive.png" alt="Request"> <span>View Requests</span>
+                                </a>
+                            </li>
+                            
+                            <li class="">
+                                <a href="beneficiary">
+                                    <img src="assets/images/icon/recipients.png" alt="Recipients"> <span>Beneficiaries</span>
+                                </a>
+                            </li>
+                            
+                            <li class="">
+                                <a href="fund">
+                                    <img src="assets/images/icon/deposit.png" alt="Deposit"> <span>Deposit Money</span>
+                                </a>
+                            </li>
+                           
+                        </ul>
+                        <ul class="bottom-item">
+                            <li class="">
+                                <a href="account">
+                                    <img src="assets/images/icon/account.png" alt="Account"> <span>Account</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <img src="assets/images/icon/support.png" alt="Support"> <span>Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="logout">
+                                    <img src="assets/images/icon/quit.png" alt="Quit"> <span>Quit</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <!--<div class="pt-120">-->
+                        <!--    <div class="invite-now">-->
+                        <!--        <div class="img-area">-->
+                        <!--            <img src="assets/images/invite-now-illus.png" alt="Image">-->
+                        <!--        </div>-->
+                        <!--        <p>Invite your friend and get $25</p>-->
+                        <!--        <a href="javascript:void(0)" class="cmn-btn">Invite Now</a>-->
+                        <!--    </div>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header-section end -->
+
+
+    <!-- Dashboard Section start -->
+    <section class="dashboard-section body-collapse pay step">
+        <div class="overlay pt-120">
+            <div class="container-fruid">
+                <div class="main-content">
+                    <div class="head-area d-flex align-items-center justify-content-between">
+                        <h4>Request a Payment</h4>
+                    </div>
+                    <div class="choose-recipient">
+                        <div class="step-area">
+                            <span class="mdr">Step 1 of 3</span>
+                            <h5>Choose Recipient</h5>
+                        </div>
+                        <div class="recipient-list">
+                            
+                            <button data-bs-toggle="modal" data-bs-target="#recipientsMod">
+                                <span class="icon-area">
+                                    <i class="icon-e-plus"></i>
+                                </span>
+                                <span>New Beneficiary</span>
+                            </button>
+                        </div>
+                        <p class="recipients-item">0 Beneficiaries </p>
+                    </div>
+                    
+                    <div class="user-select">
+                        <input type="hidden" id="active_contact">
+                        
+                        
+                        <div class="single-user">
+                                                        No Beneficiary here...
+                                                    </div>                        
+                       
+                    </div>
+                    <div class="footer-area mt-40">
+                        <a href="dashboard">Dashboard</a>
+                        <a href="#0" class="active" id="next">Next Step</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Dashboard Section end -->
+
+    <!-- Add Recipients Popup start -->
+    <div class="add-recipients">
+        <div class="container-fruid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="modal fade" id="recipientsMod" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-between">
+                                    <h6>Add Beneficiary</h6>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                                </div>
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation" id="tab-internal">
+                                        <button class="nav-link active" id="individual-tab" data-bs-toggle="tab"
+                                            data-bs-target="#individual" type="button" role="tab" aria-controls="individual"
+                                            aria-selected="false">
+                                            <span class="icon-area">
+                                                <img src="assets/images/icon/individual-icon.png" alt="icon">
+                                            </span>
+                                            Zurich Bank
+                                        </button>
+                                    </li>
+                                   
+                                </ul>
+                                
+                                
+                                <div class="tab-content">
+                                    
+
+                                    <div class="tab-pane fade show active" id="individual" role="tabpanel" aria-labelledby="individual-tab">
+                                        <div class="image-area mt-30 text-center">
+                                            <img src="assets/images/user-profile.png" alt="icon">
+                                        </div>
+                                        <form action="#">
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="individualName">User's Account Number</label>
+                                                        <input type="number" id="add_internal_user" placeholder="11024454">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <label for="fname">First Name</label>
+                                                        <input readonly type="text" id="add_internal_fname" placeholder="AUTO FILL">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="single-input">
+                                                        <label for="lname">Last Name</label>
+                                                        <input readonly type="text" id="add_internal_lname" placeholder="AUTO FILL">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                    <div class="single-input">
+                                                        <label for="add_internal_pass">Account Pin</label>
+                                                        <input type="password" id="add_internal_pass" placeholder="account authentication" autocomplete="new-password">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-12">
+                                                    <div class="btn-border w-100">
+                                                        <button id="add_internal_sbmt" class="cmn-btn w-100">Add Beneficiary</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Transactions Popup start -->
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery-ui.js"></script>
+    <script src="assets/js/plugin/apexcharts.js"></script>
+    <script src="assets/js/plugin/jquery.nice-select.min.js"></script>
+    <script src="assets/js/plugin/waypoint.min.js"></script>
+    <script src="assets/js/plugin/wow.min.js"></script>
+    <script src="assets/js/plugin/plugin.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/toastr.min.js"></script>
+    
+    
+        
+<script>
+    $(function(){
+        var overlay= $("#overlay");
+        var loader= $("#loader");
+        
+        function loadOn(){
+            overlay.css('display', 'block');
+            loader.css('display', 'block');
+        }
+        function loadOff(){
+            overlay.css('display', 'none');
+             loader.css('display', 'none');
+        }
+        
+        function notify(status, message, desc){
+         toastr[status](message);
+       }
+        
+
+     var site_domain= "zurichalpha.org";
+    
+   
+
+    $("#add_internal_user").keyup(function(){
+        var user= $(this).val();
+        if(user.length == 9){
+            $(this).blur();
+            $.post('ajax', {
+                verify_user_acct: "set",
+                user: user
+            }, function(data, status){
+                if(data.err== 0){
+                    $("#add_internal_fname").val(data.fname);
+                    $("#add_internal_lname").val(data.lname);
+                    notify('success', 'Account retrieval completed')
+                }else if(data.err== 2){
+                    notify('info', data.msg)
+                }
+            }, "JSON")
+        }else{
+            $("#add_internal_fname").val('');
+            $("#add_internal_lname").val('');
+        }
+    })
+    
+    
+    $("#add_internal_sbmt").click(function(){
+        event.preventDefault();
+        var user= $("#add_internal_user").val();
+        var pass= $("#add_internal_pass").val();
+        if(user== "" || user.length != 9){
+            notify('warning', 'Invalid account number!')
+        }else if(pass== ""){
+            notify('warning', 'Please enter your account pin!')
+        }else{
+            loadOn();
+            $.post('ajax', {
+                add_beneficiary: "set",
+                type: "internal",
+                user: user,
+                pass: pass
+            }, function(data, status){
+                if(data.err== 0){
+                    $("#add_internal_fname").val('');
+                    $("#add_internal_lname").val('');
+                    $("#add_internal_user").val('');
+                    $("#add_internal_pass").val('');
+                    notify('success', data.msg)
+                    setTimeout(function(){
+                        window.location.reload();
+                    }, 2000)
+                }else{
+                    loadOff();
+                    notify('error', data.msg)
+                }
+            }, "JSON")
+        }
+    })
+    
+    
+    $(".active_contact").click(function(){
+        event.preventDefault();
+        var this_cl= $(this);
+        var contact_id= $(this).data('id');
+        $("#active_contact").val(contact_id);
+        
+        $('.active_contact').each(function(ids, el){
+            if($(this).data('id')== contact_id){
+                $(this).text("✔️ Chosen");
+            }else{
+                $(this).text("Choose");
+            }
+        })
+    })
+    
+    $("#next").click(function(){
+        var contact= $("#active_contact").val();
+        if(contact== ""){
+            notify('warning', 'Please select one contact')
+        }else{
+            loadOn();
+            setTimeout(function(){
+                window.location.href="https://"+site_domain+"/account/request-step-2?to="+contact
+            }, 1000)
+        }
+    })
+    
+    
+       
+    })
+</script>
+
+</body>
+
+</html>
